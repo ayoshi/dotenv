@@ -112,7 +112,7 @@
 # in addition to the hardstatus line.
 #
 # use caption to show window list:
-caption always "%{= kw}%?%-Lw%?%{+b kw}%n*%t%f %?(%u)%?%{= kw}%?%+Lw%?"
+#caption always "%{= kw}%?%-Lw%?%{+b kw}%n*%t%f %?(%u)%?%{= kw}%?%+Lw%?"
 
 
 # caption always '%{= wb}%50=%n%f %t%{= wb}'
@@ -145,14 +145,19 @@ caption always "%{= kw}%?%-Lw%?%{+b kw}%n*%t%f %?(%u)%?%{= kw}%?%+Lw%?"
 # On the right there is the time in green and the date in yellow.
 #
 #hardstatus alwayslastline "%?%{wk}%-Lw%?%{yK}%n*%f %t%?(%u)%?%?%{wk}%+Lw%? %{gk}%=%c %{yk}%d/%M/%Y"
-hardstatus alwayslastline "%{+b kr}[ %H ] %{ky} Load: %l %-=%{kb} %c  %d.%m.%Y"
+#Grey
+#hardstatus alwayslastline "%{+b kr}[ %H ] %{ky} Load: %l %-=%{kb} %c  %d.%m.%Y"
+#
+hardstatus alwayslastline
+hardstatus string '%{= }[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
 
 #hardstatus alwayslastline "%{+b kr}[ %H ] %{kw} Load: %l %-=%  %{kb} %c:%s  %d.%m.%Y "
 
 
 # Colorize the "messages" and "text marking":
 # Example:  Blue bg, white fg
- sorendition gK
+#sorendition gK
+term screen-256color
 #
 # ============================
 # Password
