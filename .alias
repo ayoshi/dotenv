@@ -1,0 +1,13 @@
+alias jewage_ssh_root='ssh -p 8022 -i /Users/alexg/.ssh/id_jewage root@ec2-75-101-137-134.compute-1.amazonaws.com'
+alias jewage_ssh='ssh -p 8022 -i /Users/alexg/.ssh/id_dsa ag@jewage.org'
+alias xel_ssh_root='ssh -p 45678 root@62.90.23.94'
+alias ramon_ssh_root='ssh -p 20022 root@62.90.23.94'
+alias solar_ssh_root='ssh -p 20022 -L6271:linux01:6271 root@mail.solaredge.com'
+alias mh01_ssh_root='ssh -L7071:127.0.0.1:7071 root@mh01.qbsystems.biz'
+alias veriest_ssh_root='ssh root@212.150.10.179'
+alias xsignnet_ssh='ssh alexg@vpn.xsignnet.com -p 21022'
+
+# Local
+alias Hellanzb='screen -c /opt/local/etc/hellanzb.screenrc'
+alias firefox_opt='find ~/Library/Application\ Support/Firefox/Profiles -name "*.sqlite" -exec sqlite3 {} VACUUM \;'
+alias htpc='ssh robot@htpc'
