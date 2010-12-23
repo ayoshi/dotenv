@@ -1,0 +1,39 @@
+[user]
+	name = Alexander Goldberg
+	email = algold@gmail.com
+[github]
+	user = ayoshi
+	token = 9eaca6eeff107ca2f60e747962c422e1
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[diff]
+	external = git_vim_diff
+[pager]
+	diff =
+[core]
+	pager = vimpager
+[color]
+	branch = auto
+	diff = off
+	status = auto
+	log = off
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
