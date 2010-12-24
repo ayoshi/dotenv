@@ -28,4 +28,4 @@ export PATH=/usr/local/bin:${PATH}
 [ -f /usr/local/bin/vimpager ] && export PAGER=/usr/local/bin/vimpager
 
 #Source local aliases
-[ -f .alias ] && source .alias
+[ -f ~/.alias ] && source ~/.alias
