@@ -15,6 +15,7 @@
 	diff =
 [core]
 	pager = vimpager
+	editor = vim
 [color]
 	branch = auto
 	diff = off
