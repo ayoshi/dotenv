@@ -29,3 +29,8 @@ export PATH=/usr/local/bin:${PATH}
 
 #Source local aliases
 [ -f ~/.alias ] && source ~/.alias
+
+# Cause Tab behave like in bash in empty string 
+#zstyle ':completion:*' insert-tab false
+
+
