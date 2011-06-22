@@ -527,14 +527,14 @@ bind ^Y screen -t log watch -n 5 rail -40 /var/log/syslog
 # ===============================================================
 # Briefly show the version number of this starting
 # screen session - but only for *one* second:
-  msgwait 1
-  version
+#  msgwait 1
+#  version
 # change back to showing messages
 # for duration of two seconds:
-  msgwait 2
+#  msgwait 2
 #
 # Welcome the user:
-  echo "welcome :-)"
+#  echo "welcome :-)"
 #
 # Ths DISPLAY variable keeps getting in my way.
 # usually I do not want to start programs which
