@@ -1,5 +1,5 @@
 set guioptions=c
 set passkeys='google\.com/reader':nplmsSaAt
-colorscheme lightgray
+colorscheme lightgrey
 
 " vim: set ft=pentadactyl:
