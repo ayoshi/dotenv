@@ -24,6 +24,9 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=/usr/local/bin:${PATH}
 
+# Load RVM function
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
 #Set pager to vimpager
 [ -f /usr/local/bin/vimpager ] && export PAGER=/usr/local/bin/vimpager
 
@@ -32,5 +35,4 @@ export PATH=/usr/local/bin:${PATH}
 
 # Cause Tab behave like in bash in empty string 
 #zstyle ':completion:*' insert-tab false
-
 
