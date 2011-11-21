@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="afowler"
+export ZSH_THEME="norm"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -33,4 +33,6 @@ export PATH=/usr/local/bin:${PATH}
 # Cause Tab behave like in bash in empty string 
 #zstyle ':completion:*' insert-tab false
 
+# Use RVM if installed 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 

@@ -157,7 +157,7 @@ hardstatus string '%{= }[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?
 # Colorize the "messages" and "text marking":
 # Example:  Blue bg, white fg
 #sorendition gK
-term screen-256color
+term xterm-256color
 #
 # ============================
 # Password
