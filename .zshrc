@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=/usr/local/bin:${PATH}
+export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
 
 # Load RVM function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
