@@ -1,12 +1,3 @@
-#-----------#
-# Passwords #
-#-----------#
-#set my_tmpsecret=`gpg2 -o ~/.sec/.tmp -d ~/.sec/pass.gpg`
-#set my_gpass1=`awk '/Gmail1/ {print $2}' ~/.sec/.tmp`
-#set my_gpass2=`awk '/Gmail2/ {print $2}' ~/.sec/.tmp`
-#set my_del=`rm -f ~/.sec/.tmp`
-
-
 # Source encrypted password file
 # To create:
 # gpg -ea -o secrets.gpg -r algold@gmail.com secrets 
