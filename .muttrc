@@ -1,0 +1,135 @@
+#-----------#
+# Passwords #
+#-----------#
+#set my_tmpsecret=`gpg2 -o ~/.sec/.tmp -d ~/.sec/pass.gpg`
+#set my_gpass1=`awk '/Gmail1/ {print $2}' ~/.sec/.tmp`
+#set my_gpass2=`awk '/Gmail2/ {print $2}' ~/.sec/.tmp`
+#set my_del=`rm -f ~/.sec/.tmp`
+
+
+# Source encrypted password file
+# To create:
+# gpg -ea -o secrets.gpg -r algold@gmail.com secrets 
+source "gpg --textmode -d ~/.mutt/secrets.gpg |"
+
+# From mail addresses
+
+alternates "(algold@gmail\.com)|(alex@qbsystems\.biz)|(alexg@infinidat\.com)"
+set use_from
+
+# Account Hooks {{{
+account-hook . "unset imap_user; unset imap_pass; unset tunnel" # unset first!
+account-hook        "imaps://algold@imap.gmail.com/" "\
+    set imap_user   = algold@gmail.com \
+        imap_pass   = $my_gpass1"
+account-hook        "imaps://alex@qbsystems.biz@imap.gmail.com/" "\
+    set imap_user   = alex@qbsystems.biz@gmail.com \
+        imap_pass   = $my_gpass2"
+account-hook        "imaps://alexg@infinidat.com@imap.gmail.com/" "\
+    set imap_user   = alexg@infinidat.com@gmail.com \
+        imap_pass   = $my_gpass3"
+##}}}
+
+# Folders, mailboxes and folder hooks {{{
+
+# Setup for algold: {{{
+set folder          = imaps://algold@imap.gmail.com/
+mailboxes           = +INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam =[Gmail]/Trash
+set spoolfile       = +INBOX
+folder-hook         imaps://algold@imap.gmail.com/ "\
+    set folder      = imaps://algold@imap.gmail.com/ \
+        spoolfile   = +INBOX \
+        postponed   = +[Gmail]/Drafts \
+        record      = +[Gmail]/'Sent Mail' \
+        from        = 'Alexander Goldberg <algold@gmail.com> ' \
+        realname    = 'Alexander Goldberg' \
+        smtp_url    = smtps://algold@smtp.gmail.com \
+        smtp_pass   = $my_gpass1"
+#}}}
+
+# Setup for alex@qbsystems.biz: {{{
+set folder          = imaps://alex@qbsystems.biz@imap.gmail.com/
+mailboxes           = +INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam =[Gmail]/Trash
+set spoolfile       = +INBOX
+folder-hook         imaps://alex@qbsystems.biz@imap.gmail.com/ "\
+    set folder      = imaps://alex@qbsystems.biz@imap.gmail.com/ \
+        spoolfile   = +INBOX \
+        postponed   = +[Gmail]/Drafts \
+        record      = +[Gmail]/'Sent Mail' \
+        from        = 'Alexander Goldberg <alex@qbsystems.biz@gmail.com> ' \
+        realname    = 'Alexander Goldberg' \
+        smtp_url    = smtps://alex@qbsystems.biz@smtp.gmail.com \
+        smtp_pass   = $my_gpass2"
+#}}}
+
+# Setup for alexg@infinidat.com: {{{
+set folder          = imaps://alexg@infinidat.com@imap.gmail.com/
+mailboxes           = +INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam =[Gmail]/Trash
+set spoolfile       = +INBOX
+folder-hook         imaps://alexg@infinidat.com@imap.gmail.com/ "\
+    set folder      = imaps://alexg@infinidat.com@imap.gmail.com/ \
+        spoolfile   = +INBOX \
+        postponed   = +[Gmail]/Drafts \
+        record      = +[Gmail]/'Sent Mail' \
+        from        = 'Alexander Goldberg <alexg@infinidat.com@gmail.com> ' \
+        realname    = 'Alexander Goldberg' \
+        smtp_url    = smtps://alexg@infinidat.com@smtp.gmail.com \
+        smtp_pass   = $my_gpass3"
+#}}}
+
+#}}}
+
+#--------#
+# Macros #
+#--------#
+macro index <F1> "y2<return><return>" # jump to mailbox number 2 (algold inbox)
+macro index <F2> "y8<return><return>"  # jump to mailbox number 8 (alex@qbsystems.biz inbox)
+macro index <F3> "y14<return><return>"  # jump to mailbox number 8 (alex@qbsystems.biz inbox)
+
+#-----------------------#
+# Gmail-specific macros #
+#-----------------------#
+# to delete more than 1 message, just mark them with "t" key and then do "d" on them
+macro index d ";s+[Gmail]/Trash<enter><enter>" "Move to Gmail's Trash"
+# delete message, but from pager (opened email)
+macro pager d "s+[Gmail]/Trash<enter><enter>"  "Move to Gmail's Trash"
+# undelete messages
+macro index u ";s+INBOX<enter><enter>"         "Move to Gmail's INBOX"
+macro pager u "s+INBOX<enter><enter>"          "Move to Gmail's INBOX"
+
+#-------------------------#
+# Misc. optional settings #
+#-------------------------#
+# Check for mail every minute for current IMAP mailbox every 1 min
+set timeout         = 60
+# Check for new mail in ALL mailboxes every 2 min
+set mail_check      = 120
+# keep imap connection alive by polling intermittently (time in seconds)
+set imap_keepalive  = 300
+# allow mutt to open new imap connection automatically
+unset imap_passive
+
+# Set cache folders
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/cache/certificates
+
+set smart_wrap = yes
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+set imap_check_subscribed
+#
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+#
+set timeout=60	#Check for mail every minute
+set mail_check=5
+
+# sort mail by threads
+set sort            = threads
+# and sort threads by date
+set sort_aux        = last-date-received
+
+source ~/.mutt/colors/mutt-colors-solarized-dark-16.muttrc
