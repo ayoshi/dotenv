@@ -1,0 +1,41 @@
+[user]
+	name = Alexander Goldberg
+	email = 
+[github]
+	user = 
+	token = 
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[diff]
+	external = git_vim_diff
+[pager]
+	diff =
+[core]
+	pager = vimpager
+	editor = vim
+	excludesfile = ~/.cvsignore
+[color]
+	branch = auto
+	diff = off
+	status = auto
+	log = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
