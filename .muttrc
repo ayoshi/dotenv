@@ -46,3 +46,56 @@ macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+=======
+
+source ~/.mutt/accounts.muttrc
+
+#--------#
+# Macros #
+#--------#
+macro index <F1> "y2<return><return>" # jump to mailbox number 2 (algold inbox)
+macro index <F2> "y8<return><return>"  # jump to mailbox number 8 (alex@qbsystems.biz inbox)
+macro index <F3> "y14<return><return>"  # jump to mailbox number 8 (alex@qbsystems.biz inbox)
+
+#-----------------------#
+# Gmail-specific macros #
+#-----------------------#
+# to delete more than 1 message, just mark them with "t" key and then do "d" on them
+macro index d ";s+[Gmail]/Trash<enter><enter>" "Move to Gmail's Trash"
+# delete message, but from pager (opened email)
+macro pager d "s+[Gmail]/Trash<enter><enter>"  "Move to Gmail's Trash"
+# undelete messages
+macro index u ";s+INBOX<enter><enter>"         "Move to Gmail's INBOX"
+macro pager u "s+INBOX<enter><enter>"          "Move to Gmail's INBOX"
+
+#-------------------------#
+# Misc. optional settings #
+#-------------------------#
+# Check for mail every minute for current IMAP mailbox every 1 min
+set timeout         = 60
+# Check for new mail in ALL mailboxes every 2 min
+set mail_check      = 120
+# keep imap connection alive by polling intermittently (time in seconds)
+set imap_keepalive  = 300
+# allow mutt to open new imap connection automatically
+unset imap_passive
+
+# Set cache folders
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/cache/certificates
+
+#
+set timeout=60	#Check for mail every minute
+set mail_check=5
+
+# sort mail by threads
+set sort            = threads
+# and sort threads by date
+set sort_aux        = last-date-received
+
+source ~/.mutt/colors/mutt-colors-solarized-dark-16.muttrc
+
+# Use Apple contact DB for resolution
+# brew install contacts
+set query_command="contacts -l -f %n%e %s | awk '/@/ {print $1\" \" $2\" <\"$3\">\"}'"

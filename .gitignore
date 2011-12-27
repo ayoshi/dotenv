@@ -1,0 +1,4 @@
+#Pendactyl temp files
+.pentadactyl/info/*
+.mutt/secrets.gpg
+.mutt/cache

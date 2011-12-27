@@ -2,8 +2,8 @@
 	name = Alexander Goldberg
 	email = algold@gmail.com
 [github]
-	user = ayoshi
-	token = 9eaca6eeff107ca2f60e747962c422e1
+	user = 
+	token = 
 [alias]
 	co = checkout
 	br = branch
@@ -16,11 +16,12 @@
 [core]
 	pager = vimpager
 	editor = vim
+	excludesfile = ~/.cvsignore
 [color]
 	branch = auto
 	diff = off
 	status = auto
-	log = off
+	log = auto
 
 [color "branch"]
 	current = yellow reverse

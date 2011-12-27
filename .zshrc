@@ -18,13 +18,16 @@ export EDITOR="/usr/local/bin/vim"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx ruby brew)
+plugins=(git osx ruby brew rvm)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=/usr/local/bin:${PATH}
+export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
+
+# Load RVM function
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 #Set pager to vimpager
 [ -f /usr/local/bin/vimpager ] && export PAGER=/usr/local/bin/vimpager
@@ -37,4 +40,3 @@ export PATH=/usr/local/bin:${PATH}
 
 # Use RVM if installed 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
