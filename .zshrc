@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="gozilla"
 
-export EDITOR="/usr/local/bin/vim"
+export EDITOR=`which vim`
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -18,25 +18,25 @@ export EDITOR="/usr/local/bin/vim"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx ruby brew rvm)
+plugins=(git osx ruby brew rvm vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
 
 # Load RVM function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
-#Set pager to vimpager
+# Set pager to vimpager
 [ -f /usr/local/bin/vimpager ] && export PAGER=/usr/local/bin/vimpager
 
-#Source local aliases
+# Source local aliases
 [ -f ~/.alias ] && source ~/.alias
 
 # Cause Tab behave like in bash in empty string 
-#zstyle ':completion:*' insert-tab false
+# zstyle ':completion:*' insert-tab false
 
-# Use RVM if installed 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Allow for local customization 
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
