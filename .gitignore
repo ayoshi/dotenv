@@ -2,3 +2,4 @@
 .pentadactyl/info/*
 .mutt/secrets.gpg
 .mutt/cache
+.ssh/config
