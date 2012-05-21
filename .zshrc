@@ -28,6 +28,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
 # Load RVM function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
+# Load pythonbrew function
+[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+
 # Set pager to vimpager
 [ -f /usr/local/bin/vimpager ] && export PAGER=/usr/local/bin/vimpager
 
