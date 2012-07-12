@@ -3,6 +3,7 @@
     ;(global-surround-mode 1)
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 (unless (require 'el-get nil t)
   (with-current-buffer
@@ -24,6 +25,10 @@
 (define-key evil-normal-state-map "gT" 'elscreen-previous) ;previous tab
 (define-key evil-normal-state-map "gt" 'elscreen-next) ;next tab
 
-(menu-bar-mode -1)
+;(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+
+(global-set-key (kbd "<escape>")      'keyboard-escape-quit)
+
+
