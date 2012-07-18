@@ -3,3 +3,4 @@
 .mutt/secrets.gpg
 .mutt/cache
 .ssh/config
+.emacs.d
