@@ -34,11 +34,12 @@ zstyle ':omz:module:terminal' auto-title 'no'
 zstyle ':omz:load' omodule \
   'environment' \
   'terminal' \
+  'osx' \
   'editor' \
   'history' \
   'directory' \
+  'tmux' \
   'spectrum' \
-  'alias' \
   'completion' \
   'utility' \
   'prompt' \
