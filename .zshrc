@@ -1,45 +1,59 @@
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
+#
+# Sets Oh My Zsh options.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="gozilla"
+# Set the path to Oh My Zsh.
+export OMZ="$HOME/.oh-my-zsh"
 
-export EDITOR=`which vim`
+# Set the key mapping style to 'emacs' or 'vi'.
+zstyle ':omz:module:editor' keymap 'emacs'
 
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
+# Auto convert .... to ../..
+zstyle ':omz:module:editor' dot-expansion 'no'
 
-# Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
+# Set case-sensitivity for completion, history lookup, etc.
+zstyle ':omz:*:*' case-sensitive 'no'
 
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
+# Color output (auto set to 'no' on dumb terminals).
+zstyle ':omz:*:*' color 'yes'
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx ruby brew rvm vagrant)
+# Auto set the tab and window titles.
+zstyle ':omz:module:terminal' auto-title 'no'
 
-source $ZSH/oh-my-zsh.sh
+# Set the Zsh modules to load (man zshmodules).
+# zstyle ':omz:load' zmodule 'attr' 'stat'
+
+# Set the Zsh functions to load (man zshcontrib).
+# zstyle ':omz:load' zfunction 'zargs' 'zmv'
+
+# Set the Oh My Zsh modules to load (browse modules).
+# The order matters.
+zstyle ':omz:load' omodule \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'alias' \
+  'completion' \
+  'utility' \
+  'prompt' \
+  'git' \
+
+# Set the prompt theme to load.
+# Setting it to 'random' loads a random theme.
+# Auto set to 'off' on dumb terminals.
+zstyle ':omz:module:prompt' theme 'sorin'
+
+# This will make you shout: OH MY ZSHELL!
+source "$OMZ/init.zsh"
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
-
-# Load RVM function
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
-# Load pythonbrew function
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
-
-# Set pager to vimpager
-[ -f /usr/local/bin/vimpager ] && export PAGER=/usr/local/bin/vimpager
-
-# Source local aliases
-[ -f ~/.alias ] && source ~/.alias
-
-# Cause Tab behave like in bash in empty string 
-# zstyle ':completion:*' insert-tab false
 
 # Allow for local customization 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
+[ -f ~/.alias ] && source ~/.alias
