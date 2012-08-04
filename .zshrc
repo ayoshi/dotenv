@@ -20,8 +20,21 @@ zstyle ':omz:*:*' case-sensitive 'no'
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':omz:*:*' color 'yes'
 
+### Highlighting
+
+zstyle ':omz:module:syntax-highlighting' color 'yes'
+
+### Highlighters
+
+zstyle ':omz:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'cursor' \
+  'root'
+
 # Auto set the tab and window titles.
-zstyle ':omz:module:terminal' auto-title 'no'
+zstyle ':omz:module:terminal' auto-title 'yes'
 
 # Set the Zsh modules to load (man zshmodules).
 # zstyle ':omz:load' zmodule 'attr' 'stat'
@@ -34,16 +47,16 @@ zstyle ':omz:module:terminal' auto-title 'no'
 zstyle ':omz:load' omodule \
   'environment' \
   'terminal' \
-  'osx' \
   'editor' \
   'history' \
   'directory' \
-  'tmux' \
   'spectrum' \
   'completion' \
+  'tmux' \
   'utility' \
-  'prompt' \
   'git' \
+  'syntax-highlighting' \
+  'prompt'
 
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
@@ -54,7 +67,4 @@ zstyle ':omz:module:prompt' theme 'sorin'
 source "$OMZ/init.zsh"
 
 # Customize to your needs...
-
-# Allow for local customization 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-[ -f ~/.alias ] && source ~/.alias
