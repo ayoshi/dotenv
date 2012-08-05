@@ -14,7 +14,7 @@
 
 (dolist (p my-packages)
     (when (not (package-installed-p p))
-          (package-install p)))')
+          (package-install p)))
 
 (require 'evil)
 (evil-mode 1)
