@@ -66,5 +66,10 @@ zstyle ':omz:module:prompt' theme 'sorin'
 # This will make you shout: OH MY ZSHELL!
 source "$OMZ/init.zsh"
 
+# Add additional completion which will always complete files 
+zle -C complete complete-word complete-files
+bindkey '^X\t' complete
+complete-files () { compadd - $PREFIX* }
+
 # Customize to your needs...
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
