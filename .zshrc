@@ -6,7 +6,7 @@
 #
 
 # Set the path to Oh My Zsh.
-export OMZ="$HOME/.oh-my-zsh"
+export OMZ="$HOME/.prezto"
 
 # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':omz:module:editor' keymap 'emacs'
