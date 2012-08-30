@@ -54,6 +54,9 @@ zstyle ':omz:load' omodule \
   'completion' \
   'tmux' \
   'utility' \
+  'history-substring-search' \
+  'ruby' \
+  'command-not-found' \
   'git' \
   'syntax-highlighting' \
   'prompt'
@@ -66,10 +69,15 @@ zstyle ':omz:module:prompt' theme 'steeef'
 # This will make you shout: OH MY ZSHELL!
 source "$OMZ/init.zsh"
 
+# Share history between sessions
+setopt append_history share_history histignorealldups
+
 # Add additional completion which will always complete files 
 zle -C complete complete-word complete-files
 bindkey '^X\t' complete
 complete-files () { compadd - $PREFIX* }
+
+
 
 # Customize to your needs...
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
