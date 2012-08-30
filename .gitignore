@@ -4,3 +4,5 @@
 .mutt/cache
 .ssh/config
 .emacs.d
+*~
+*\#

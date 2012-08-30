@@ -8,8 +8,7 @@
 (package-refresh-contents)
 (package-initialize)
 
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-ruby 
-                      starter-kit-bindings evil evil-leader)
+(defvar my-packages '(evil evil-leader evil-numbers solarized-theme)
 		      "A list of packages to ensure are installed at launch." )
 
 (dolist (p my-packages)
@@ -25,10 +24,13 @@
 ;(define-key evil-normal-state-map "gT" 'elscreen-previous) ;previous tab
 ;(define-key evil-normal-state-map "gt" 'elscreen-next) ;next tab
 
-;(menu-bar-mode 1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+(menu-bar-mode t)
+(tool-bar-mode nil)
+(scroll-bar-mode nil)
 (setq-default mode-line-format nil)
+
+;Toggle line numbers
+(global-linum-mode t)
 
 ;(left-fringe . 0); no fringe
 ;(right-fringe . 0)
