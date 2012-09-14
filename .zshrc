@@ -59,7 +59,7 @@ zstyle ':omz:load' omodule \
   'command-not-found' \
   'git' \
   'syntax-highlighting' \
-  'prompt'
+  'prompt' 
 
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
