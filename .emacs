@@ -127,7 +127,7 @@
 (set-face-attribute 'mode-line-read-only-face nil
     :inherit 'mode-line-face
   ;  :foreground "#4271ae"
-  ;  :box '(:line-width 2 :color "#4271ae"))
+    :box '(:line-width 2 :color "#4271ae"))
 (set-face-attribute 'mode-line-modified-face nil
     :inherit 'mode-line-face
   ;  :foreground "#c82829"
