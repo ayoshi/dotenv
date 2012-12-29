@@ -1,3 +1,5 @@
+;; No splash screen please ... jeez
+(setq inhibit-startup-message t)
 
 (require 'package)
 (add-to-list 'package-archives
@@ -5,7 +7,8 @@
 (package-refresh-contents)
 (package-initialize)
 
-(defvar my-packages '(evil evil-leader evil-numbers solarized-theme geiser magit paredit)
+(defvar my-packages '(evil evil-leader evil-numbers solarized-theme
+			   geiser magit paredit rainbow-delimiters slime)
 		      "A list of packages to ensure are installed at launch." )
 
 (dolist (p my-packages)
@@ -156,3 +159,63 @@
 (set-face-attribute 'mode-line-80col-face nil
     :inherit 'mode-line-position-face
     :foreground "black" :background "#eab700")
+
+;; Some stuff for moving lines around, and starting newline
+(defun move-line-down ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (forward-line)
+      (transpose-lines 1))
+    (forward-line)
+    (move-to-column col)))
+
+(defun move-line-up ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (forward-line)
+      (transpose-lines -1))
+    (move-to-column col)))
+
+(global-set-key (kbd "<C-S-down>") 'move-line-down)
+(global-set-key (kbd "<C-S-up>") 'move-line-up)
+
+(defun open-line-below ()
+  (interactive)
+  (end-of-line)
+  (newline)
+  (indent-for-tab-command))
+
+(defun open-line-above ()
+  (interactive)
+  (beginning-of-line)
+  (newline)
+  (forward-line -1)
+  (indent-for-tab-command))
+
+(global-set-key (kbd "<C-return>") 'open-line-below)
+(global-set-key (kbd "<C-S-return>") 'open-line-above)
+
+;; Auto refresh buffers
+(global-auto-revert-mode 1)
+
+;; Also auto refresh dired, but be quiet about it
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
+;; Save point position between sessions
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (expand-file-name ".places" user-emacs-directory))
+
+;; Write backup files to own directory
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name
+                 (concat user-emacs-directory "backups")))))
+
+;; Make backups of files, even when they're in version control
+(setq vc-make-backup-files t)
+
+; Globally enable rainbow delimeters
+(global-rainbow-delimiters-mode)
