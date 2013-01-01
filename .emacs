@@ -8,7 +8,9 @@
 (package-initialize)
 
 (defvar my-packages '(evil evil-leader evil-numbers solarized-theme
-			   geiser magit paredit rainbow-delimiters slime)
+			   geiser magit paredit rainbow-delimiters slime slime-repl slime-fuzzy
+			   anything anything-config anything-match-plugin
+			   pretty-lambdada pretty-mode-plus)
 		      "A list of packages to ensure are installed at launch." )
 
 (dolist (p my-packages)
@@ -91,7 +93,7 @@
    (global-mode-string global-mode-string)
    "    "
    ; nyan-mode uses nyan cat as an alternative to %p
-   (:eval (when nyan-mode (list (nyan-create))))
+   ;(:eval (when nyan-mode (list (nyan-create))))
    ))
 
 ;; Helper function
@@ -219,3 +221,23 @@
 
 ; Globally enable rainbow delimeters
 (global-rainbow-delimiters-mode)
+
+; SLIME setup
+;(setq inferior-lisp-program "/usr/local/bin/ccl64")
+;(require 'slime-autoloads)
+;(eval-after-load 'slime '(setq slime-protocol-version 'ignore))
+;(slime-setup '(slime-repl))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(geiser-mode-company-p nil)
+ '(geiser-mode-smart-tab-p t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
