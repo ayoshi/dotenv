@@ -1,6 +1,41 @@
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
+(when window-system
+  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+  (tooltip-mode -1)
+  (mouse-wheel-mode t)
+  (blink-cursor-mode -1))
+
+(add-hook 'before-make-frame-hook 'turn-off-tool-bar)
+
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(ansi-color-for-comint-mode-on)
+
+(setq visible-bell t
+      fringe-mode (cons 4 0)
+      echo-keystrokes 0.1
+      font-lock-maximum-decoration t
+      inhibit-startup-message t
+      transient-mark-mode t
+      color-theme-is-global t
+      shift-select-mode nil
+      mouse-yank-at-point t
+      require-final-newline t
+      truncate-partial-width-windows nil
+      uniquify-buffer-name-style 'forward
+      ffap-machine-p-known 'reject
+      whitespace-style '(trailing lines space-before-tab
+                                  face indentation space-after-tab)
+      whitespace-line-column 100
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      xterm-mouse-mode t)
+
+
+
+
 (require 'package)
 (add-to-list 'package-archives
                           '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -19,6 +54,10 @@
 
 (require 'evil)
 (evil-mode 1)
+
+(require 'evil-leader)
+(evil-leader/set-leader (kbd ";"))
+
 
 ;(require 'surround)
 ;(global-surround-mode 1)
@@ -241,3 +280,47 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; Use Shift-arrows for split navigation
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
+;; Use pretty lambda
+(require 'pretty-lambdada)
+(pretty-lambda-for-modes)
+
+;; Always go after symlinked files
+(setq vc-follow-symlinks t)
+
+;; Enable IDO everyhere
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(setq ido-ubiquitous t)
+
+(ido-mode 1)
+(setq ido-create-new-buffer 'always)
+
+;; Try
+(setq ido-use-filename-at-point 'guess)
+
+; Vim-like key bindings
+
+; <Leader>b show buffers
+(evil-leader/set-key "b" 'ibuffer)
+
+; Leader lb - ido buffers lf - ido files
+(evil-leader/set-key "lb" 'ido-switch-buffer)
+(evil-leader/set-key "lf" 'ido-find-file)
+
+
+
+;; Transparently open compressed files
+(auto-compression-mode t)
+
+;; Enable syntax highlighting for older Emacsen that have it off
+(global-font-lock-mode t)
+
+;; Save a list of recent files visited.
+(recentf-mode 1)
+
+;; Highlight matching parentheses when the point is on them.
+(show-paren-mode 1)
