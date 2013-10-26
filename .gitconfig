@@ -1,8 +1,8 @@
 [user]
 	name = Alexander Goldberg
-	email = algold@gmail.com
+	email = alexg@infinidat.com
 [github]
-	user = 
+	user = ayoshi
 	token = 
 [alias]
 	co = checkout
@@ -39,3 +39,5 @@
 	changed = green
 	untracked = cyan
 
+[ghi]
+	token =
