@@ -28,7 +28,7 @@ defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
 # Disable Mission Control Animations
-defaults write com.apple.dock expose-animation-duration -int 0.5
+defaults write com.apple.dock expose-animation-duration -int 0.25
 
 # Increase window resize speed for Cocoa applications
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
