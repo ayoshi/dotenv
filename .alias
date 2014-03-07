@@ -1,3 +1,4 @@
 # Local
 alias firefox_opt='find ~/Library/Application\ Support/Firefox/Profiles -name "*.sqlite" -exec sqlite3 {} VACUUM \;'
 alias cleandns='sudo killall -HUP mDNSResponder'
+alias xemacs='open /Applications/Emacs.app --args'

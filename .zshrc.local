@@ -1,0 +1,22 @@
+# MacTEX
+export PATH="/usr/texbin:$PATH"
+
+# Init pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Init rbenv
+eval "$(rbenv init -)"
+
+# Setting for the new UTF-8 terminal support in Lion
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# To keep gitconfig generic
+export GIT_AUTHOR_NAME="Alexander Goldberg"
+export GIT_COMMITTER_NAME="Alexander Goldberg"
+export GIT_AUTHOR_EMAIL="alexg@infinidat.com"
+export GIT_COMMITTER_EMAIL="alexg@infinidat.com"
+
+[ -f ~/.alias ] && source ~/.alias
