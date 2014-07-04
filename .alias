@@ -2,3 +2,8 @@
 alias firefox_opt='find ~/Library/Application\ Support/Firefox/Profiles -name "*.sqlite" -exec sqlite3 {} VACUUM \;'
 alias cleandns='sudo killall -HUP mDNSResponder'
 alias xemacs='open /Applications/Emacs.app --args'
+alias estart='/Applications/Emacs.app/Contents/MacOS/Emacs --daemon'
+alias estop='emacsclient -e "(kill-emacs)"'
+alias e='emacsclient -nw'
+alias ex='emacsclient'
+alias catp='pygmentize'
