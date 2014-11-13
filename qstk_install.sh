@@ -1,0 +1,30 @@
+brew install gcc
+brew install freetype
+brew install libpng
+brew install zeromq
+brew install readline
+brew install r
+LDFLAGS="-L/usr/local/opt/freetype/lib -L/usr/local/opt/libpng/lib" CPPFLAGS="-I/usr/local/opt/freetype/include -I/usr/local/opt/libpng/include -I/usr/local/opt/freetype/include/freetype2" pip install matplotlib
+pip install nose
+pip install pyparsing
+pip install python-dateutil
+pip install numpy
+pip install scipy
+pip install pandas
+pip install scikits.statsmodels
+pip install scikit-learn
+pip install QSTK
+pip install readline
+pip install blaze
+pip install brewer2mpl
+pip install prettyplotlib
+pip install patsy
+pip install theano
+pip install sympy
+pip install cython
+pip install rpy2
+pip install quandl
+pip install mpld3
+STATIC_DEPS=true pip install lxml
+pip install "ipython-beautifulsoup[4,notebook,qtconsole]"
+ip install 'ipython[all]'
